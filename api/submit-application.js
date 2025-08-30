@@ -19,7 +19,7 @@ const sendConfirmationEmail = async (data) => {
     console.log('Using API key:', process.env.RESEND_API_KEY ? 'Present' : 'Missing');
 
     const emailResult = await resend.emails.send({
-      from: 'onboarding@resend.dev', // Use Resend's default verified domain
+      from: 'Acme <onboarding@resend.dev>', // Use Resend's default verified domain
       to: [data.email],
       subject: 'Hackademia - Application Received ✅',
       html: `
