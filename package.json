@@ -1,7 +1,8 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "hackademia-website",
+  "description": "Hackademia - AI-Powered Academic Writing Assistant. The safe cheat code for academic writing.",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
