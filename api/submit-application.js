@@ -15,8 +15,11 @@ const sendConfirmationEmail = async (data) => {
       ? 'Free Testing Access Only' 
       : 'Free Testing Access or Paid Full Access';
 
+    console.log('Attempting to send email to:', data.email);
+    console.log('Using API key:', process.env.RESEND_API_KEY ? 'Present' : 'Missing');
+
     const emailResult = await resend.emails.send({
-      from: 'Hackademia <noreply@hackademia.com>',
+      from: 'onboarding@resend.dev', // Use Resend's default verified domain
       to: [data.email],
       subject: 'Hackademia - Application Received ✅',
       html: `
@@ -71,11 +74,13 @@ const sendConfirmationEmail = async (data) => {
       `,
     });
 
+    console.log('Email API response:', JSON.stringify(emailResult, null, 2));
     console.log('Email sent successfully:', emailResult.data?.id);
     return true;
     
   } catch (error) {
     console.error('Failed to send confirmation email:', error);
+    console.error('Error details:', JSON.stringify(error, null, 2));
     return false;
   }
 };
