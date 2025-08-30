@@ -135,23 +135,46 @@ export default async function handler(req, res) {
       });
     }
     
-    // Generate unique ID
+    // Generate unique ID and timestamp
     const applicationId = Date.now().toString() + Math.random().toString(36).substr(2, 9);
+    const timestamp = new Date().toISOString();
     
-    console.log('Application processed successfully:', { applicationId, email });
+    // Create application object
+    const application = {
+      id: applicationId,
+      timestamp: timestamp,
+      name: name,
+      email: email,
+      phone: phone,
+      interest: interest,
+      message: message
+    };
     
-    // Send confirmation email
-    const emailSent = await sendConfirmationEmail({ name, email, interest, message });
+    // Log the application for storage (you can access this in Vercel logs)
+    console.log('=== NEW APPLICATION SUBMISSION ===');
+    console.log('Application ID:', applicationId);
+    console.log('Timestamp:', timestamp);
+    console.log('Name:', name);
+    console.log('Email:', email);
+    console.log('Phone:', phone);
+    console.log('Interest:', interest);
+    console.log('Message:', message);
+    console.log('==================================');
     
-    if (!emailSent) {
-      console.warn('Failed to send confirmation email for application:', applicationId);
+    // Store in memory (temporary - will be lost on server restart)
+    if (!global.applications) {
+      global.applications = [];
     }
+    global.applications.push(application);
+    
+    console.log('Total applications stored:', global.applications.length);
+    console.log('Application processed successfully:', { applicationId, email });
     
     res.json({ 
       success: true, 
-      message: 'Application submitted successfully!',
+      message: 'Application submitted successfully! We will review and get back to you within 2-3 business days.',
       applicationId,
-      emailSent
+      emailSent: false
     });
     
   } catch (error) {
