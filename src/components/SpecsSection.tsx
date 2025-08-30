@@ -19,8 +19,12 @@ const SpecsSection = () => {
         {/* Main content with text mask image - responsive text sizing */}
         <div className="max-w-5xl pl-4 sm:pl-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display leading-tight mb-8 sm:mb-12">
-            <span className="block bg-clip-text text-transparent bg-[url('/text-mask-image.jpg')] bg-cover bg-center">
-              Atlas works with your team, not instead of it. By handling repetitive tasks, improving safety conditions, and learning from every interaction, Atlas helps humans focus on what they do best: create, solve, and innovate.
+            <span className="block bg-clip-text text-transparent" style={{
+              backgroundImage: 'linear-gradient(to right, #2dd4ff, #8b5cf6, #4c1d95, #ff36a3)',
+              backgroundSize: '200% 100%',
+              backgroundPosition: 'center'
+            }}>
+              Don't become another student using general AI like ChatGPT, which wasn't built for academics, leading to headaches with fake references and getting caught for cheating. <br className="hidden sm:block" /><br className="hidden sm:block" />Follow the rules and always use the only specialized AI tool designed for students and built with academic integrity in mind from the start.
             </span>
           </h2>
         </div>

@@ -45,6 +45,7 @@ const Navbar = () => {
       )}
     >
       <div className="container flex items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Brand */}
         <a 
           href="#" 
           className="flex items-center space-x-2"
@@ -69,8 +70,7 @@ const Navbar = () => {
           >
             Home
           </a>
-          <a href="#about" className="nav-link">About</a>
-          <a href="#beta" className="nav-link">Contact</a>
+          <a href="#signup" className="nav-link">Join</a>
         </nav>
 
         {/* Mobile menu button - increased touch target */}
@@ -88,6 +88,7 @@ const Navbar = () => {
         "fixed inset-0 z-40 bg-white flex flex-col pt-16 px-6 md:hidden transition-all duration-300 ease-in-out",
         isMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
       )}>
+        {/* Mobile nav (mirror desktop) */}
         <nav className="flex flex-col space-y-8 items-center mt-8">
           <a 
             href="#" 
@@ -102,24 +103,14 @@ const Navbar = () => {
             Home
           </a>
           <a 
-            href="#about" 
+            href="#signup" 
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
             onClick={() => {
               setIsMenuOpen(false);
               document.body.style.overflow = '';
             }}
           >
-            About
-          </a>
-          <a 
-            href="#beta" 
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
-            onClick={() => {
-              setIsMenuOpen(false);
-              document.body.style.overflow = '';
-            }}
-          >
-            Contact
+            Join
           </a>
         </nav>
       </div>

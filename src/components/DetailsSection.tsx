@@ -1,13 +1,21 @@
 
 import React, { useState } from "react";
 import { toast } from "sonner";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import ApplyForm from './ApplyForm';
+
 const DetailsSection = () => {
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     email: "",
-    company: ""
+    phone: "",
+    interest: "",
+    message: ""
   });
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
       value
@@ -17,12 +25,13 @@ const DetailsSection = () => {
       [name]: value
     }));
   };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     // Simple validation
-    if (!formData.fullName || !formData.email) {
-      toast.error("Please fill in all required fields");
+    if (!formData.name || !formData.email || !formData.phone || !formData.interest || !formData.message) {
+      setError("Please complete all required fields.");
       return;
     }
 
@@ -31,9 +40,11 @@ const DetailsSection = () => {
 
     // Reset form
     setFormData({
-      fullName: "",
+      name: "",
       email: "",
-      company: ""
+      phone: "",
+      interest: "",
+      message: ""
     });
   };
   return <section id="details" className="w-full bg-white py-0">
@@ -43,7 +54,7 @@ const DetailsSection = () => {
           <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-elegant">
             {/* Card Header with background image instead of gradient */}
             <div className="relative h-48 sm:h-64 p-6 sm:p-8 flex items-end" style={{
-            backgroundImage: "url('/background-section3.png')",
+            backgroundImage: "url('/assets/images/vision-orange-1.png')",
             backgroundSize: "cover",
             backgroundPosition: "center"
           }}>
@@ -62,6 +73,7 @@ const DetailsSection = () => {
               </h3>
 
               <div className="space-y-4 sm:space-y-6">
+                {/* List items */}
                 <div className="flex items-start gap-3">
                   <div className="w-6 h-6 rounded-full bg-dark-900 flex items-center justify-center mt-1 flex-shrink-0">
                     <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,7 +82,7 @@ const DetailsSection = () => {
                   </div>
                   <div className="flex-1">
                     <div className="p-3 rounded-lg bg-gray-50/80 backdrop-blur-sm border border-gray-100">
-                      <span className="font-semibold text-base">Height:</span> 5'8"
+                      <span className="font-semibold text-base">Essay Edge:</span> AI-powered writing assistance for structuring and drafting essays.
                     </div>
                   </div>
                 </div>
@@ -83,7 +95,7 @@ const DetailsSection = () => {
                   </div>
                   <div className="flex-1">
                     <div className="p-3 rounded-lg bg-gray-50/80 backdrop-blur-sm border border-gray-100">
-                      <span className="font-semibold text-base">Capacity:</span> 55lbs
+                      <span className="font-semibold text-base">Instant Feedback:</span> Real-time suggestions to improve your writing and avoid common errors.
                     </div>
                   </div>
                 </div>
@@ -96,7 +108,7 @@ const DetailsSection = () => {
                   </div>
                   <div className="flex-1">
                     <div className="p-3 rounded-lg bg-gray-50/80 backdrop-blur-sm border border-gray-100">
-                      <span className="font-semibold text-base">Weight:</span> 140lbs
+                      <span className="font-semibold text-base">Brainstorming:</span> Generate ideas and outlines to kickstart your assignments.
                     </div>
                   </div>
                 </div>
@@ -109,7 +121,7 @@ const DetailsSection = () => {
                   </div>
                   <div className="flex-1">
                     <div className="p-3 rounded-lg bg-gray-50/80 backdrop-blur-sm border border-gray-100">
-                      <span className="font-semibold text-base">Uptime:</span> 6hr
+                      <span className="font-semibold text-base">Research:</span> Find and summarize reliable sources with proper citations.
                     </div>
                   </div>
                 </div>
@@ -122,7 +134,7 @@ const DetailsSection = () => {
                   </div>
                   <div className="flex-1">
                     <div className="p-3 rounded-lg bg-gray-50/80 backdrop-blur-sm border border-gray-100">
-                      <span className="font-semibold text-base">Movement:</span> 1.5M/S
+                      <span className="font-semibold text-base">AI & Plagiarism Checks:</span> Ensure academic integrity with built-in detection and guidelines.
                     </div>
                   </div>
                 </div>
@@ -133,16 +145,13 @@ const DetailsSection = () => {
           {/* Right Card - Contact Form */}
           <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-elegant">
             {/* Card Header with background image instead of gradient */}
-            <div className="relative h-48 sm:h-64 p-6 sm:p-8 flex flex-col items-start" style={{
-            backgroundImage: "url('/background-section1.png')",
+            <div className="relative h-48 sm:h-64 p-6 sm:p-8 flex items-end" style={{
+            backgroundImage: "url('/assets/images/vision-blue-1.png')",
             backgroundSize: "cover",
             backgroundPosition: "center"
           }}>
-              <div className="inline-block px-4 sm:px-6 py-2 border border-white text-white rounded-full text-xs mb-4">
-                Request a demo
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-display text-white font-bold mt-auto">
-                See it for yourself
+              <h2 className="text-2xl sm:text-3xl font-display text-white font-bold">
+                Apply for Testing Access
               </h2>
             </div>
             
@@ -151,51 +160,7 @@ const DetailsSection = () => {
             backgroundColor: "#FFFFFF",
             border: "1px solid #ECECEC"
           }}>
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-                <div>
-                  <input 
-                    type="text" 
-                    name="fullName" 
-                    value={formData.fullName} 
-                    onChange={handleChange} 
-                    placeholder="Full name" 
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent" 
-                    required 
-                  />
-                </div>
-                
-                <div>
-                  <input 
-                    type="email" 
-                    name="email" 
-                    value={formData.email} 
-                    onChange={handleChange} 
-                    placeholder="Email address" 
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent" 
-                    required 
-                  />
-                </div>
-                
-                <div>
-                  <input 
-                    type="text" 
-                    name="company" 
-                    value={formData.company} 
-                    onChange={handleChange} 
-                    placeholder="Company (optional)" 
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent" 
-                  />
-                </div>
-                
-                <div>
-                  <button 
-                    type="submit" 
-                    className="w-full px-6 py-3 bg-pulse-500 hover:bg-pulse-600 text-white font-medium rounded-full transition-colors duration-300"
-                  >
-                    Request access
-                  </button>
-                </div>
-              </form>
+              <ApplyForm />
             </div>
           </div>
         </div>
