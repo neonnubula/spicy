@@ -1,3 +1,5 @@
+import { kv } from '@vercel/kv';
+
 export default async function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -16,8 +18,20 @@ export default async function handler(req, res) {
   }
   
   try {
-    // Get stored applications from memory
-    const applications = global.applications || [];
+    // Get all application IDs from the list
+    const applicationIds = await kv.lrange('applications', 0, -1);
+    
+    // Fetch all applications
+    const applications = [];
+    for (const id of applicationIds) {
+      const application = await kv.get(`application:${id}`);
+      if (application) {
+        applications.push(application);
+      }
+    }
+    
+    // Sort by timestamp (newest first)
+    applications.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
     
     console.log('Retrieved applications:', applications.length);
     
