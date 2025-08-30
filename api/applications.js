@@ -26,6 +26,28 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
   
+  // SECURITY: Check for authorization header
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(401).json({ 
+      error: 'Unauthorized',
+      message: 'Access token required'
+    });
+  }
+  
+  const token = authHeader.substring(7); // Remove 'Bearer ' prefix
+  
+  // SECURITY: Check if token matches expected value
+  // You should set this as an environment variable
+  const expectedToken = process.env.ADMIN_TOKEN || 'your-secret-admin-token';
+  
+  if (token !== expectedToken) {
+    return res.status(403).json({ 
+      error: 'Forbidden',
+      message: 'Invalid access token'
+    });
+  }
+  
   try {
     // Get all application IDs from the list
     const applicationIds = await redis.lRange('applications', 0, -1);
