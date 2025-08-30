@@ -53,9 +53,9 @@ const Navbar = () => {
             e.preventDefault();
             scrollToTop();
           }}
-          aria-label="Hackademia"
+          aria-label="Product Name"
         >
-          <span className="text-xl font-bold">Hackademia</span>
+          <span className="text-xl font-bold">Product Name</span>
         </a>
 
         {/* Desktop Navigation */}
@@ -68,9 +68,9 @@ const Navbar = () => {
               scrollToTop();
             }}
           >
-            Home
+            Nav item
           </a>
-          <a href="#signup" className="nav-link">Join</a>
+          <a href="#signup" className="nav-link">Primary CTA</a>
         </nav>
 
         {/* Mobile menu button - increased touch target */}
@@ -100,7 +100,7 @@ const Navbar = () => {
               document.body.style.overflow = '';
             }}
           >
-            Home
+            Nav item
           </a>
           <a 
             href="#signup" 
@@ -110,7 +110,7 @@ const Navbar = () => {
               document.body.style.overflow = '';
             }}
           >
-            Join
+            Primary CTA
           </a>
         </nav>
       </div>

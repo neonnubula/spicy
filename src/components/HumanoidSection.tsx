@@ -97,12 +97,12 @@ const HumanoidSection = () => {
                 animationDelay: "0.1s"
               }}>
                 <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">02</span>
-                <span>Hackademia</span>
+                <span>Eyebrow descriptor</span>
               </div>
             </div>
             
             <h2 className="section-title text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-1 md:mb-2">
-              Why Hackademia
+              Headline that does X
             </h2>
           </div>
           
@@ -129,14 +129,14 @@ const HumanoidSection = () => {
               
               <div className="absolute top-4 right-4 z-20">
                 <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
-                  <span className="text-sm font-medium">The vision</span>
+                  <span className="text-sm font-medium">Eyebrow descriptor</span>
                 </div>
               </div>
               
               <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                 <div className="max-w-lg">
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
-                    This is the Only AI Tool Built for Academic Integrity
+                    Subheadline that does X
                   </h3>
                 </div>
               </div>
@@ -165,14 +165,14 @@ const HumanoidSection = () => {
               
               <div className="absolute top-4 right-4 z-20">
                 <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
-                  <span className="text-sm font-medium">The vision</span>
+                  <span className="text-sm font-medium">Eyebrow descriptor</span>
                 </div>
               </div>
               
               <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                 <div className="max-w-lg">
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
-                    The World's Best AI Tool for University Students
+                    Subheadline that does X
                   </h3>
                 </div>
               </div>
@@ -201,14 +201,14 @@ const HumanoidSection = () => {
               
               <div className="absolute top-4 right-4 z-20">
                 <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
-                  <span className="text-sm font-medium">The vision</span>
+                  <span className="text-sm font-medium">Eyebrow descriptor</span>
                 </div>
               </div>
               
               <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                 <div className="max-w-lg">
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
-                    We’re making AI tools shame-free and transparent
+                    Subheadline that does X
                   </h3>
                 </div>
               </div>

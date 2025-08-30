@@ -24,7 +24,7 @@ const SpecsSection = () => {
               backgroundSize: '200% 100%',
               backgroundPosition: 'center'
             }}>
-              Don't become another student using general AI like ChatGPT, which wasn't built for academics, leading to headaches with fake references and getting caught for cheating. <br className="hidden sm:block" /><br className="hidden sm:block" />Follow the rules and always use the only specialized AI tool designed for students and built with academic integrity in mind from the start.
+              Long form value proposition text placeholder. Explain benefits and outcomes succinctly. <br className="hidden sm:block" /><br className="hidden sm:block" />Add a second sentence that reinforces credibility or social proof.
             </span>
           </h2>
         </div>

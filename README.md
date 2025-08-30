@@ -1,69 +1,43 @@
-# Welcome to your Lovable project
+## Boilerplate Template
 
-## Project info
+Overview
 
-**URL**: https://lovable.dev/projects/35d72d2e-6e25-40e5-9b0c-c0d1a7c1b727
+- Vite + React + TypeScript + Tailwind + shadcn-ui.
+- Structure and CSS are preserved. Only text content has been replaced with placeholders.
 
-## How can I edit this code?
+Getting Started
 
-There are several ways of editing your application.
+1. Install Node.js 18+.
+2. Install dependencies: `npm i`
+3. Run dev server: `npm run dev`
 
-**Use Lovable**
+Deployment (Vercel)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/35d72d2e-6e25-40e5-9b0c-c0d1a7c1b727) and start prompting.
+- This repository includes `vercel.json` for API functions and CORS headers.
+- Connect the repo to Vercel and import. No changes required for a basic deploy.
+- Add environment variables in Vercel dashboard as needed (see below).
 
-Changes made via Lovable will be committed automatically to this repo.
+Environment Variables (document only)
 
-**Use your preferred IDE**
+- SUPABASE_URL: Your Supabase URL.
+- SUPABASE_ANON_KEY: Your Supabase anon key.
+- ADMIN_TOKEN: Bearer token to read submissions via `api/applications.js`.
+- RESEND_API_KEY: Resend API key to enable email sends via `api/send-email.js`.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Integrations
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Supabase: `api/submit-application.js` inserts form submissions into `applications` table (see `supabase-setup.sql`).
+- Resend: `api/send-email.js` scaffold is present and returns a helpful message until configured.
 
-Follow these steps:
+Customization Checklist
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- Replace placeholder copy in components with your product messaging.
+- Replace `public/hero-background.png` with your OG/Twitter image (1200x630).
+- Update `index.html` meta tags (title, description, keywords, author, URLs).
+- See `IMAGE_GUIDE.md` for a list of images and guidance.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Notes on Routes and Structure
 
-# Step 3: Install the necessary dependencies.
-npm i
+- All routes, IDs, and structure remain unchanged to avoid breaking references.
+- Add new API routes under `api/` without renaming existing ones.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/35d72d2e-6e25-40e5-9b0c-c0d1a7c1b727) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)

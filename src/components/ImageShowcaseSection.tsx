@@ -7,10 +7,10 @@ const ImageShowcaseSection = () => {
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12 animate-on-scroll">
           <h2 className="text-3xl sm:text-4xl font-display font-bold tracking-tight text-gray-900 mb-3 sm:mb-4">
-            Experience the Future Today
+            Headline that does X
           </h2>
           <p className="text-base sm:text-lg text-gray-600">
-            Our cutting-edge artificial intelligence system is designed to transform how we interact with technology in University Education.
+            Subheadline that does X
           </p>
         </div>
         
@@ -23,9 +23,9 @@ const ImageShowcaseSection = () => {
             />
           </div>
           <div className="bg-white p-4 sm:p-8">
-            <h3 className="text-xl sm:text-2xl font-display font-semibold mb-3 sm:mb-4">Next Generation Study Tools</h3>
+            <h3 className="text-xl sm:text-2xl font-display font-semibold mb-3 sm:mb-4">Section heading placeholder</h3>
             <p className="text-gray-700 text-sm sm:text-base">
-              Built with advanced AI and educational focus, our tools seamlessly integrate into university life, providing assistance and enriching learning experiences.
+              Short description placeholder
             </p>
           </div>
         </div>

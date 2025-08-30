@@ -59,7 +59,7 @@ const DetailsSection = () => {
             backgroundPosition: "center"
           }}>
               <h2 className="text-2xl sm:text-3xl font-display text-white font-bold">
-                The details
+                Section heading placeholder
               </h2>
             </div>
             
@@ -69,7 +69,7 @@ const DetailsSection = () => {
             border: "1px solid #ECECEC"
           }}>
               <h3 className="text-lg sm:text-xl font-display mb-6 sm:mb-8">
-                Precision engineering meets adaptive intelligence
+                Supporting subheading placeholder
               </h3>
 
               <div className="space-y-4 sm:space-y-6">
@@ -82,7 +82,7 @@ const DetailsSection = () => {
                   </div>
                   <div className="flex-1">
                     <div className="p-3 rounded-lg bg-gray-50/80 backdrop-blur-sm border border-gray-100">
-                      <span className="font-semibold text-base">Essay Edge:</span> AI-powered writing assistance for structuring and drafting essays.
+                      <span className="font-semibold text-base">Feature name placeholder:</span> Short feature description placeholder.
                     </div>
                   </div>
                 </div>
@@ -95,7 +95,7 @@ const DetailsSection = () => {
                   </div>
                   <div className="flex-1">
                     <div className="p-3 rounded-lg bg-gray-50/80 backdrop-blur-sm border border-gray-100">
-                      <span className="font-semibold text-base">Instant Feedback:</span> Real-time suggestions to improve your writing and avoid common errors.
+                      <span className="font-semibold text-base">Feature name placeholder:</span> Short feature description placeholder.
                     </div>
                   </div>
                 </div>
@@ -108,7 +108,7 @@ const DetailsSection = () => {
                   </div>
                   <div className="flex-1">
                     <div className="p-3 rounded-lg bg-gray-50/80 backdrop-blur-sm border border-gray-100">
-                      <span className="font-semibold text-base">Brainstorming:</span> Generate ideas and outlines to kickstart your assignments.
+                      <span className="font-semibold text-base">Feature name placeholder:</span> Short feature description placeholder.
                     </div>
                   </div>
                 </div>
@@ -121,7 +121,7 @@ const DetailsSection = () => {
                   </div>
                   <div className="flex-1">
                     <div className="p-3 rounded-lg bg-gray-50/80 backdrop-blur-sm border border-gray-100">
-                      <span className="font-semibold text-base">Research:</span> Find and summarize reliable sources with proper citations.
+                      <span className="font-semibold text-base">Feature name placeholder:</span> Short feature description placeholder.
                     </div>
                   </div>
                 </div>
@@ -151,7 +151,7 @@ const DetailsSection = () => {
             backgroundPosition: "center"
           }}>
               <h2 className="text-2xl sm:text-3xl font-display text-white font-bold">
-                Apply for Testing Access
+                Section heading placeholder
               </h2>
             </div>
             

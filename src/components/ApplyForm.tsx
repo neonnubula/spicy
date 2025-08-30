@@ -21,8 +21,8 @@ const ApplyForm = () => {
 
   const validatePhone = (phone: string): boolean => {
     // International phone format - allows +, spaces, dashes, parentheses, and 7-15 digits
-    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
-    const cleanPhone = phone.replace(/[\s\-\(\)]/g, '');
+    const phoneRegex = /^\+?[1-9][\d]{0,15}$/;
+    const cleanPhone = phone.replace(/[\s-()]/g, '');
     return phoneRegex.test(cleanPhone) && cleanPhone.length >= 7 && cleanPhone.length <= 15;
   };
 

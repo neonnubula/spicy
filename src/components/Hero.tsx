@@ -7,7 +7,7 @@ import LottieAnimation from "./LottieAnimation";
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
-  const [lottieData, setLottieData] = useState<any>(null);
+  const [lottieData, setLottieData] = useState<Record<string, unknown> | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -106,21 +106,21 @@ const Hero = () => {
               style={{ animationDelay: "0.1s" }}
             >
               <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">01</span>
-              <span>Academia, hacked</span>
+              <span>Eyebrow descriptor</span>
             </div>
             
             <h1 
               className="section-title text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight opacity-0 animate-fade-in text-white" 
               style={{ animationDelay: "0.3s" }}
             >
-              Hackademia: Write smarter. Stay safe.
+              Headline that does X
             </h1>
             
             <p 
               style={{ animationDelay: "0.5s" }} 
               className="section-subtitle mt-3 sm:mt-6 mb-4 sm:mb-8 leading-relaxed opacity-0 animate-fade-in text-white font-normal text-base sm:text-lg text-left"
             >
-              The safe cheat code for academic writing. Master AI tools responsibly without sacrificing your education or your future.
+              Subheadline that does X
             </p>
             
             <div 
@@ -142,43 +142,24 @@ const Hero = () => {
                   border: '1px solid white',
                 }}
               >
-                Request Testing Access
+                Primary CTA
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
             </div>
           </div>
           
           <div className="w-full lg:w-1/2 relative mt-6 lg:mt-0">
-            {true ? ( // Force static
-              <>
-              <div className="absolute inset-0 bg-dark-900 rounded-2xl sm:rounded-3xl -z-10 shadow-xl"></div>
-              <div className="relative transition-all duration-500 ease-out overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
-                <img 
-                  ref={imageRef} 
-                  src="/assets/images/hero-robot.png" 
-                  alt="Hero robot image" 
-                  className="w-full h-auto object-cover transition-transform duration-500 ease-out max-w-lg mx-auto" 
-                  style={{ transformStyle: 'preserve-3d' }} 
-                />
-                <div className="absolute inset-0" style={{ backgroundImage: 'url("/assets/images/hero-gradient.png")', backgroundSize: 'cover', backgroundPosition: 'center', mixBlendMode: 'overlay', opacity: 0.5 }}></div>
-              </div>
-              </>
-            ) : (
-              // Original Lottie code, but not used
-              <>
-              <div className="absolute inset-0 bg-dark-900 rounded-2xl sm:rounded-3xl -z-10 shadow-xl"></div>
-              <div className="relative transition-all duration-500 ease-out overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
-                <img 
-                  ref={imageRef} 
-                  src="/lovable-uploads/5663820f-6c97-4492-9210-9eaa1a8dc415.png" 
-                  alt="Atlas Robot" 
-                  className="w-full h-auto object-cover transition-transform duration-500 ease-out" 
-                  style={{ transformStyle: 'preserve-3d' }} 
-                />
-                <div className="absolute inset-0" style={{ backgroundImage: 'url("/hero-image.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', mixBlendMode: 'overlay', opacity: 0.5 }}></div>
-              </div>
-              </>
-            )}
+            <div className="absolute inset-0 bg-dark-900 rounded-2xl sm:rounded-3xl -z-10 shadow-xl"></div>
+            <div className="relative transition-all duration-500 ease-out overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
+              <img 
+                ref={imageRef} 
+                src="/assets/images/hero-robot.png" 
+                alt="Hero robot image" 
+                className="w-full h-auto object-cover transition-transform duration-500 ease-out max-w-lg mx-auto" 
+                style={{ transformStyle: 'preserve-3d' }} 
+              />
+              <div className="absolute inset-0" style={{ backgroundImage: 'url("/assets/images/hero-gradient.png")', backgroundSize: 'cover', backgroundPosition: 'center', mixBlendMode: 'overlay', opacity: 0.5 }}></div>
+            </div>
           </div>
         </div>
       </div>

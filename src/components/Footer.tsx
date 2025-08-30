@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="w-full py-6" style={{ backgroundColor: '#0b0a1d' }}>
       <div className="section-container">
-        <p className="text-center text-white text-sm">© {year} Hackademia. All rights reserved.</p>
+        <p className="text-center text-white text-sm">© {year} Product Name. All rights reserved.</p>
       </div>
     </footer>
   );

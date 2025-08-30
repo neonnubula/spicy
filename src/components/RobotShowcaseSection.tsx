@@ -37,14 +37,13 @@ const RobotShowcaseSection = () => {
           <div className="mb-12 text-center">
             <div className="pulse-chip mb-4">
               <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">03</span>
-              <span>Meet the Future</span>
+              <span>Eyebrow descriptor</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4">
-              Precision Engineering Meets <span className="text-[#FC4D0A]">Adaptive AI</span>
+              Headline that does X
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our humanoid robot represents the perfect fusion of cutting-edge mechanical engineering and 
-              state-of-the-art artificial intelligence, designed to seamlessly integrate into human environments.
+              Subheadline that does X
             </p>
           </div>
           
@@ -57,11 +56,11 @@ const RobotShowcaseSection = () => {
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-white text-xl font-semibold">Next Generation Companion</h3>
-                  <p className="text-white/80">Designed for human interaction</p>
+                  <h3 className="text-white text-xl font-semibold">Section heading placeholder</h3>
+                  <p className="text-white/80">Short description placeholder</p>
                 </div>
                 <button className="px-6 py-3 bg-pulse-500 hover:bg-pulse-600 text-white font-medium rounded-full transition-colors duration-300">
-                  Learn More
+                  Secondary CTA
                 </button>
               </div>
             </div>
