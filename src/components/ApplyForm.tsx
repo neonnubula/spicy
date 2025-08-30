@@ -174,9 +174,12 @@ const ApplyForm = () => {
               }
             }}
           >
-            <SelectTrigger className={`mt-1 w-full rounded-xl ${
-              errors.interest ? 'border-red-300' : 'border-gray-300'
-            }`}>
+            <SelectTrigger 
+              id="interest"
+              className={`mt-1 w-full rounded-xl ${
+                errors.interest ? 'border-red-300' : 'border-gray-300'
+              }`}
+            >
               <SelectValue placeholder="Select option" />
             </SelectTrigger>
             <SelectContent>
