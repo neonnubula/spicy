@@ -83,6 +83,12 @@ export default {
 					"700": "#2d2d2d",
 					"600": "#3d3d3d",
 				},
+				purple: {
+					"900": "#4c1d95", // Dark purple
+					"800": "#5b21b6",
+					"700": "#6d28d9",
+					"600": "#7c3aed",
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
