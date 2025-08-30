@@ -1,13 +1,10 @@
-import { createClient } from 'redis';
+import { createClient } from '@supabase/supabase-js';
 
-// Create Redis client
-const redis = createClient({
-  url: process.env.REDIS_URL
-});
-
-// Connect to Redis
-redis.on('error', err => console.log('Redis Client Error', err));
-await redis.connect();
+// Create Supabase client
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_ANON_KEY
+);
 
 export default async function handler(req, res) {
   // Enable CORS
@@ -59,25 +56,18 @@ export default async function handler(req, res) {
       });
     }
     
-    // Generate unique ID and timestamp
-    const applicationId = Date.now().toString() + Math.random().toString(36).substr(2, 9);
-    const timestamp = new Date().toISOString();
-    
     // Create application object
     const application = {
-      id: applicationId,
-      timestamp: timestamp,
       name: name,
       email: email,
       phone: phone,
       interest: interest,
-      message: message
+      message: message,
+      created_at: new Date().toISOString()
     };
     
-    // Log the application for storage (you can access this in Vercel logs)
+    // Log the application for storage
     console.log('=== NEW APPLICATION SUBMISSION ===');
-    console.log('Application ID:', applicationId);
-    console.log('Timestamp:', timestamp);
     console.log('Name:', name);
     console.log('Email:', email);
     console.log('Phone:', phone);
@@ -85,26 +75,29 @@ export default async function handler(req, res) {
     console.log('Message:', message);
     console.log('==================================');
     
-    // Store in Redis
+    // Store in Supabase
     try {
-      // Store the application with its ID as the key
-      await redis.set(`application:${applicationId}`, JSON.stringify(application));
+      const { data, error } = await supabase
+        .from('applications')
+        .insert([application])
+        .select();
       
-      // Add to a list of all application IDs
-      await redis.lPush('applications', applicationId);
+      if (error) {
+        console.error('Supabase storage error:', error);
+        throw error;
+      }
       
-      console.log('Application stored in Redis successfully');
-    } catch (redisError) {
-      console.error('Redis storage error:', redisError);
-      // Continue even if Redis fails - we still have the logs
+      console.log('Application stored in Supabase successfully:', data);
+    } catch (supabaseError) {
+      console.error('Supabase storage error:', supabaseError);
+      // Continue even if Supabase fails - we still have the logs
     }
     
-    console.log('Application processed successfully:', { applicationId, email });
+    console.log('Application processed successfully:', { email });
     
     res.json({ 
       success: true, 
       message: 'Application submitted successfully! We will review and get back to you within 2-3 business days.',
-      applicationId,
       emailSent: false
     });
     

@@ -1,13 +1,10 @@
-import { createClient } from 'redis';
+import { createClient } from '@supabase/supabase-js';
 
-// Create Redis client
-const redis = createClient({
-  url: process.env.REDIS_URL
-});
-
-// Connect to Redis
-redis.on('error', err => console.log('Redis Client Error', err));
-await redis.connect();
+// Create Supabase client
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_ANON_KEY
+);
 
 export default async function handler(req, res) {
   // Enable CORS
@@ -38,7 +35,6 @@ export default async function handler(req, res) {
   const token = authHeader.substring(7); // Remove 'Bearer ' prefix
   
   // SECURITY: Check if token matches expected value
-  // You should set this as an environment variable
   const expectedToken = process.env.ADMIN_TOKEN || 'your-secret-admin-token';
   
   if (token !== expectedToken) {
@@ -49,21 +45,16 @@ export default async function handler(req, res) {
   }
   
   try {
-    // Get all application IDs from the list
-    const applicationIds = await redis.lRange('applications', 0, -1);
+    // Get all applications from Supabase
+    const { data: applications, error } = await supabase
+      .from('applications')
+      .select('*')
+      .order('created_at', { ascending: false });
     
-    // Fetch all applications
-    const applications = [];
-    for (const id of applicationIds) {
-      const applicationData = await redis.get(`application:${id}`);
-      if (applicationData) {
-        const application = JSON.parse(applicationData);
-        applications.push(application);
-      }
+    if (error) {
+      console.error('Supabase error:', error);
+      throw error;
     }
-    
-    // Sort by timestamp (newest first)
-    applications.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
     
     console.log('Retrieved applications:', applications.length);
     
