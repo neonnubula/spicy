@@ -1,4 +1,13 @@
-import { kv } from '@vercel/kv';
+import { createClient } from 'redis';
+
+// Create Redis client
+const redis = createClient({
+  url: process.env.REDIS_URL
+});
+
+// Connect to Redis
+redis.on('error', err => console.log('Redis Client Error', err));
+await redis.connect();
 
 export default async function handler(req, res) {
   // Enable CORS
@@ -19,13 +28,14 @@ export default async function handler(req, res) {
   
   try {
     // Get all application IDs from the list
-    const applicationIds = await kv.lrange('applications', 0, -1);
+    const applicationIds = await redis.lRange('applications', 0, -1);
     
     // Fetch all applications
     const applications = [];
     for (const id of applicationIds) {
-      const application = await kv.get(`application:${id}`);
-      if (application) {
+      const applicationData = await redis.get(`application:${id}`);
+      if (applicationData) {
+        const application = JSON.parse(applicationData);
         applications.push(application);
       }
     }

@@ -1,4 +1,13 @@
-import { kv } from '@vercel/kv';
+import { createClient } from 'redis';
+
+// Create Redis client
+const redis = createClient({
+  url: process.env.REDIS_URL
+});
+
+// Connect to Redis
+redis.on('error', err => console.log('Redis Client Error', err));
+await redis.connect();
 
 export default async function handler(req, res) {
   // Enable CORS
@@ -76,18 +85,18 @@ export default async function handler(req, res) {
     console.log('Message:', message);
     console.log('==================================');
     
-    // Store in Vercel KV
+    // Store in Redis
     try {
       // Store the application with its ID as the key
-      await kv.set(`application:${applicationId}`, application);
+      await redis.set(`application:${applicationId}`, JSON.stringify(application));
       
       // Add to a list of all application IDs
-      await kv.lpush('applications', applicationId);
+      await redis.lPush('applications', applicationId);
       
-      console.log('Application stored in KV successfully');
-    } catch (kvError) {
-      console.error('KV storage error:', kvError);
-      // Continue even if KV fails - we still have the logs
+      console.log('Application stored in Redis successfully');
+    } catch (redisError) {
+      console.error('Redis storage error:', redisError);
+      // Continue even if Redis fails - we still have the logs
     }
     
     console.log('Application processed successfully:', { applicationId, email });
