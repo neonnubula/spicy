@@ -77,17 +77,6 @@ export default {
 					"900": "#7c2d12",
 					"950": "#431407",
 				},
-				// Hackademia dark neon palette
-				hacka: {
-					bg: '#0b0a1d',
-					surface: '#12122b',
-					surface2: '#16163a',
-					text: '#e6eaf3',
-					muted: '#a4a9c4',
-					brand: '#ff36a3',
-					cyan: '#2dd4ff',
-					border: '#26284a',
-				},
 				dark: {
 					"900": "#121212", // Almost black
 					"800": "#1e1e1e",
@@ -161,7 +150,6 @@ export default {
 			boxShadow: {
 				'elegant': '0 4px 20px rgba(0, 0, 0, 0.08)',
 				'elegant-hover': '0 8px 30px rgba(0, 0, 0, 0.12)',
-				'lifted': '0 1px 2px rgba(3,7,18,.25), 0 10px 24px rgba(2,6,23,.5), 0 24px 48px rgba(2,6,23,.5)'
 			}
 		}
 	},
