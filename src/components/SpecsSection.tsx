@@ -9,8 +9,8 @@ const SpecsSection = () => {
         <div className="flex items-center gap-4 mb-8 sm:mb-16">
           <div className="flex items-center gap-4">
             <div className="pulse-chip">
-              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">3</span>
-              <span>Specs</span>
+              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">03</span>
+              <span>Why It Works</span>
             </div>
           </div>
           <div className="flex-1 h-[1px] bg-gray-300"></div>
@@ -24,7 +24,7 @@ const SpecsSection = () => {
               backgroundSize: '200% 100%',
               backgroundPosition: 'center'
             }}>
-              Long form value proposition text placeholder. Explain benefits and outcomes succinctly. <br className="hidden sm:block" /><br className="hidden sm:block" />Add a second sentence that reinforces credibility or social proof.
+              Most people fail because they try to do everything. Winners focus on what matters most. <br className="hidden sm:block" /><br className="hidden sm:block" />By achieving your single most important goal each day, you create the compound effect that transforms ordinary people into extraordinary achievers.
             </span>
           </h2>
         </div>

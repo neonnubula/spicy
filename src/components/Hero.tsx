@@ -106,21 +106,21 @@ const Hero = () => {
               style={{ animationDelay: "0.1s" }}
             >
               <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">01</span>
-              <span>Eyebrow descriptor</span>
+              <span>Transform Your Life</span>
             </div>
             
             <h1 
               className="section-title text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight opacity-0 animate-fade-in text-white" 
               style={{ animationDelay: "0.3s" }}
             >
-              Headline that does X
+              Focus on What Truly Matters
             </h1>
             
             <p 
               style={{ animationDelay: "0.5s" }} 
               className="section-subtitle mt-3 sm:mt-6 mb-4 sm:mb-8 leading-relaxed opacity-0 animate-fade-in text-white font-normal text-base sm:text-lg text-left"
             >
-              Subheadline that does X
+              Achieve your most important daily goal and watch your dreams become reality. The #1 app for achieving what matters most. Free forever.
             </p>
             
             <div 
@@ -128,7 +128,7 @@ const Hero = () => {
               style={{ animationDelay: "0.7s" }}
             >
               <a 
-                href="#signup" 
+                href="#download" 
                 className="flex items-center justify-center group w-full sm:w-auto text-center" 
                 style={{
                   backgroundColor: '#FE5C02',
@@ -142,7 +142,7 @@ const Hero = () => {
                   border: '1px solid white',
                 }}
               >
-                Primary CTA
+                Download Free
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
             </div>
@@ -153,8 +153,8 @@ const Hero = () => {
             <div className="relative transition-all duration-500 ease-out overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
               <img 
                 ref={imageRef} 
-                src="/assets/images/hero-robot.png" 
-                alt="Hero robot image" 
+                src="/images/darkmode-home.png" 
+                alt="Most Important Thing App Screenshot" 
                 className="w-full h-auto object-cover transition-transform duration-500 ease-out max-w-lg mx-auto" 
                 style={{ transformStyle: 'preserve-3d' }} 
               />

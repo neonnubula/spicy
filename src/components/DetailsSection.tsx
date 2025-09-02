@@ -1,65 +1,21 @@
 
-import React, { useState } from "react";
-import { toast } from "sonner";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import ApplyForm from './ApplyForm';
+import React from "react";
 
 const DetailsSection = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    interest: "",
-    message: ""
-  });
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const {
-      name,
-      value
-    } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Simple validation
-    if (!formData.name || !formData.email || !formData.phone || !formData.interest || !formData.message) {
-      setError("Please complete all required fields.");
-      return;
-    }
-
-    // Demo form submission
-    toast.success("Request submitted successfully!");
-
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      interest: "",
-      message: ""
-    });
-  };
-  return <section id="details" className="w-full bg-white py-0">
+  return (
+    <section id="details" className="w-full bg-white py-0">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-2">
-          {/* Left Card - The Details */}
+          {/* Left Card - App Benefits */}
           <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-elegant">
             {/* Card Header with background image instead of gradient */}
             <div className="relative h-48 sm:h-64 p-6 sm:p-8 flex items-end" style={{
-            backgroundImage: "url('/assets/images/vision-orange-1.png')",
+            backgroundImage: "url('/images/darkmode-home.png')",
             backgroundSize: "cover",
             backgroundPosition: "center"
           }}>
               <h2 className="text-2xl sm:text-3xl font-display text-white font-bold">
-                Section heading placeholder
+                Simple & Powerful
               </h2>
             </div>
             
@@ -69,7 +25,7 @@ const DetailsSection = () => {
             border: "1px solid #ECECEC"
           }}>
               <h3 className="text-lg sm:text-xl font-display mb-6 sm:mb-8">
-                Supporting subheading placeholder
+                Everything you need, nothing you don't
               </h3>
 
               <div className="space-y-4 sm:space-y-6">
@@ -82,7 +38,7 @@ const DetailsSection = () => {
                   </div>
                   <div className="flex-1">
                     <div className="p-3 rounded-lg bg-gray-50/80 backdrop-blur-sm border border-gray-100">
-                      <span className="font-semibold text-base">Feature name placeholder:</span> Short feature description placeholder.
+                      <span className="font-semibold text-base">Daily Goal Setting:</span> Set one most important goal each day with simple, intuitive interface.
                     </div>
                   </div>
                 </div>
@@ -95,7 +51,7 @@ const DetailsSection = () => {
                   </div>
                   <div className="flex-1">
                     <div className="p-3 rounded-lg bg-gray-50/80 backdrop-blur-sm border border-gray-100">
-                      <span className="font-semibold text-base">Feature name placeholder:</span> Short feature description placeholder.
+                      <span className="font-semibold text-base">Progress Tracking:</span> Visual indicators and streaks to keep you motivated and accountable.
                     </div>
                   </div>
                 </div>
@@ -108,7 +64,7 @@ const DetailsSection = () => {
                   </div>
                   <div className="flex-1">
                     <div className="p-3 rounded-lg bg-gray-50/80 backdrop-blur-sm border border-gray-100">
-                      <span className="font-semibold text-base">Feature name placeholder:</span> Short feature description placeholder.
+                      <span className="font-semibold text-base">Smart Reminders:</span> Gentle notifications that help you stay on track without overwhelming you.
                     </div>
                   </div>
                 </div>
@@ -121,7 +77,7 @@ const DetailsSection = () => {
                   </div>
                   <div className="flex-1">
                     <div className="p-3 rounded-lg bg-gray-50/80 backdrop-blur-sm border border-gray-100">
-                      <span className="font-semibold text-base">Feature name placeholder:</span> Short feature description placeholder.
+                      <span className="font-semibold text-base">Habit Building:</span> Build lasting habits by consistently achieving your most important daily goals.
                     </div>
                   </div>
                 </div>
@@ -134,7 +90,7 @@ const DetailsSection = () => {
                   </div>
                   <div className="flex-1">
                     <div className="p-3 rounded-lg bg-gray-50/80 backdrop-blur-sm border border-gray-100">
-                      <span className="font-semibold text-base">AI & Plagiarism Checks:</span> Ensure academic integrity with built-in detection and guidelines.
+                      <span className="font-semibold text-base">Privacy First:</span> Your data stays on your device. No tracking, no ads, no data collection.
                     </div>
                   </div>
                 </div>
@@ -142,29 +98,68 @@ const DetailsSection = () => {
             </div>
           </div>
 
-          {/* Right Card - Contact Form */}
+          {/* Right Card - How It Works */}
           <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-elegant">
             {/* Card Header with background image instead of gradient */}
             <div className="relative h-48 sm:h-64 p-6 sm:p-8 flex items-end" style={{
-            backgroundImage: "url('/assets/images/vision-blue-1.png')",
+            backgroundImage: "url('/images/lightmode-home.png')",
             backgroundSize: "cover",
             backgroundPosition: "center"
           }}>
               <h2 className="text-2xl sm:text-3xl font-display text-white font-bold">
-                Section heading placeholder
+                How It Works
               </h2>
             </div>
             
-            {/* Card Content - Form */}
+            {/* Card Content - Steps */}
             <div className="bg-white p-4 sm:p-8" style={{
             backgroundColor: "#FFFFFF",
             border: "1px solid #ECECEC"
           }}>
-              <ApplyForm />
+              <h3 className="text-lg sm:text-xl font-display mb-6 sm:mb-8">
+                Three simple steps to transform your life
+              </h3>
+
+              <div className="space-y-4 sm:space-y-6">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-full bg-pulse-500 flex items-center justify-center mt-1 flex-shrink-0 text-white font-bold">
+                    1
+                  </div>
+                  <div className="flex-1">
+                    <div className="p-3 rounded-lg bg-gray-50/80 backdrop-blur-sm border border-gray-100">
+                      <span className="font-semibold text-base">Identify:</span> Ask yourself: "What is the ONE thing I can do today that will make everything else easier or unnecessary?"
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-full bg-pulse-500 flex items-center justify-center mt-1 flex-shrink-0 text-white font-bold">
+                    2
+                  </div>
+                  <div className="flex-1">
+                    <div className="p-3 rounded-lg bg-gray-50/80 backdrop-blur-sm border border-gray-100">
+                      <span className="font-semibold text-base">Commit:</span> Set your most important goal in the app and commit to achieving it today, no matter what.
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-full bg-pulse-500 flex items-center justify-center mt-1 flex-shrink-0 text-white font-bold">
+                    3
+                  </div>
+                  <div className="flex-1">
+                    <div className="p-3 rounded-lg bg-gray-50/80 backdrop-blur-sm border border-gray-100">
+                      <span className="font-semibold text-base">Achieve:</span> Focus all your energy on completing that one thing. When you do, you've won the day.
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default DetailsSection;

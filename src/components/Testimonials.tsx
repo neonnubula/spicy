@@ -10,29 +10,29 @@ interface TestimonialProps {
 }
 
 const testimonials: TestimonialProps[] = [{
-  content: "Short testimonial quote placeholder one.",
-  author: "Person A",
-  role: "Role title",
+  content: "This app changed my life. I used to have 20 things on my to-do list and never completed any of them. Now I focus on one thing and actually get it done. It's incredible.",
+  author: "Sarah Chen",
+  role: "Product Manager",
   gradient: "from-blue-700 via-indigo-800 to-purple-900",
-  backgroundImage: "/assets/images/vision-blue-1.png"
+  backgroundImage: "/images/bellaheadshot.png"
 }, {
-  content: "Short testimonial quote placeholder two.",
-  author: "Person B",
-  role: "Role title",
+  content: "I've tried every productivity app out there. Most Important Thing is the only one that actually works because it forces you to prioritize what truly matters.",
+  author: "Marcus Rodriguez",
+  role: "Entrepreneur",
   gradient: "from-indigo-900 via-purple-800 to-orange-500",
-  backgroundImage: "/assets/images/vision-orange-1.png"
+  backgroundImage: "/images/dannyheadshot.jpg"
 }, {
-  content: "Short testimonial quote placeholder three.",
-  author: "Person C",
-  role: "Role title",
+  content: "Simple, focused, and effective. I've built better habits in 3 months with this app than I did in 3 years trying to do everything at once.",
+  author: "Emma Thompson",
+  role: "Software Engineer",
   gradient: "from-purple-800 via-pink-700 to-red-500",
-  backgroundImage: "/assets/images/vision-blue-2.png"
+  backgroundImage: "/images/seanheadshot.jpeg"
 }, {
-  content: "Short testimonial quote placeholder four.",
-  author: "Person D",
-  role: "Role title",
+  content: "The philosophy behind this app is brilliant. By focusing on one thing, I've achieved more meaningful progress than ever before.",
+  author: "David Kim",
+  role: "Designer",
   gradient: "from-orange-600 via-red-500 to-purple-600",
-  backgroundImage: "/assets/images/vision-blue-1.png"
+  backgroundImage: "/images/bellaheadshot.png"
 }];
 
 const TestimonialCard = ({
@@ -64,11 +64,11 @@ const Testimonials = () => {
         <div className="flex items-center gap-4 mb-6">
           <div className="pulse-chip">
             <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">04</span>
-            <span>Eyebrow descriptor</span>
+            <span>User Stories</span>
           </div>
         </div>
         
-        <h2 className="text-5xl font-display font-bold mb-12 text-left">Headline that does X</h2>
+        <h2 className="text-5xl font-display font-bold mb-12 text-left">Real People, Real Results</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => <TestimonialCard key={index} content={testimonial.content} author={testimonial.author} role={testimonial.role} gradient={testimonial.gradient} backgroundImage={testimonial.backgroundImage} />)}
